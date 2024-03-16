@@ -2,6 +2,7 @@ package com.smart.projetsmart.service;
 
 
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,14 +57,19 @@ public class ProffesseurService {
     public ResponseEntity<Object> createProffesseur (Proffesseur proffesseur) {
 
         if(proffesseur.equals(null))
+
              throw new UnsupportedOperationException("Unimplemented method 'createProffesseur'");
 
         return ResponseEntity.status(HttpStatus.CREATED).body(proffesseurRepository.save(proffesseur));
     }
+    
+    public ResponseEntity<Proffesseur> updateProffesseur(Proffesseur proffesseur) {
 
-    public ResponseEntity<Proffesseur> updateProffesseur(Proffesseur etudient) {
+        if(proffesseur.equals(null))
+
+           throw new UnsupportedOperationException("Unimplemented method 'updateEtudient'");
+        return null;
         
-        throw new UnsupportedOperationException("Unimplemented method 'updateEtudient'");
     }
 
     public ResponseEntity<Object> deleteProffesseur(Long id) {

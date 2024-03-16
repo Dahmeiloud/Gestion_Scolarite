@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smart.projetsmart.entity.Matier;
 import com.smart.projetsmart.service.MatierService;
-
+  
 @RestController
-@RequestMapping("/matieres")
+@RequestMapping("/materiere") 
 public class MatierController {
- 
     @Autowired
     private MatierService service;
 
@@ -42,6 +41,5 @@ public class MatierController {
         return service.findMatierByName(name);
  
     }
-
 
 }

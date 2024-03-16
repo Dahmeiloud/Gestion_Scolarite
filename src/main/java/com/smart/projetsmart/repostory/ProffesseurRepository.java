@@ -7,6 +7,6 @@ import com.smart.projetsmart.entity.Proffesseur;
 
 @Repository
 public interface ProffesseurRepository extends JpaRepository<Proffesseur , Long> {
-    public     Proffesseur findByNom(String nom);
+    Proffesseur findByNom(String nom);
 }
  

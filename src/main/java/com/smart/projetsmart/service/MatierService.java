@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Service
 public class MatierService {
     
-   
+   @Autowired
     private  MatierRepository matierRepository;
 
     public  ResponseEntity<Object> createMatier(Matier matier) {
@@ -33,7 +33,7 @@ public class MatierService {
         Optional<Matier> optionalMatier = matierRepository.findById(id);
         if (optionalMatier.isPresent()) {
             Matier existingMatier = optionalMatier.get();
-            existingMatier.setlibelleMatier(matier.getlibelleMatier());
+            existingMatier.setLibelleMatier(matier.getLibelleMatier());
             
             return ResponseEntity.ok().body(matierRepository.save(existingMatier));
         }
@@ -49,7 +49,7 @@ public class MatierService {
         // }
         return null;   
     }
-    
+       
     public ResponseEntity<Object> deleteMatier(Long id) {
         Optional<Matier> optionalMatier = matierRepository.findById(id);
         if (optionalMatier.isPresent()) {

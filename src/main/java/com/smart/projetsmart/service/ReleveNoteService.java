@@ -3,42 +3,34 @@ package com.smart.projetsmart.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.smart.projetsmart.entity.Etudient;
-import com.smart.projetsmart.repostory.EtudientRepository;
+import com.smart.projetsmart.entity.ReleveNote;
+import com.smart.projetsmart.repostory.ReleveNoteRepository;
 
 @Service
 public class ReleveNoteService {
     
-    @Autowired
-    private  EtudientRepository etudientRepository;
+    @Autowired 
+    private  ReleveNoteRepository releveNoteRepository;
 
-    public  ResponseEntity<Object> createEtudiant(Etudient etudient) {
+    public  ResponseEntity<Object> createReleveNote(ReleveNote releveNote) {
         try {
-            etudientRepository.save(etudient);
-
-            return ResponseEntity.ok().body("Etudient created successfully");
+            releveNoteRepository.save(releveNote);
+            return ResponseEntity.ok().body("ReleveNote created successfully");
         } catch (Exception e) {
-
             return ResponseEntity.internalServerError().build();
         }
     }
 
-    public  ResponseEntity<Etudient> updateEtudiant( Etudient etudient , long id) {
-        Optional<Etudient> optionalEtudiant = etudientRepository.findById(id);
-        if (optionalEtudiant.isPresent()) {
-            Etudient existingEtudiant = optionalEtudiant.get();
-            existingEtudiant.setMatricule(etudient.getMatricule());
-            existingEtudiant.setNom(etudient.getNom());
-            existingEtudiant.setPrenom(etudient.getPrenom());
-            existingEtudiant.setEmail(etudient.getEmail());
-            existingEtudiant.setNumTelephone(etudient.getNumTelephone());
-            existingEtudiant.setDateNaissance(etudient.getDateNaissance());
+    public  ResponseEntity<ReleveNote> updateReleveNote( ReleveNote releveNote , long id) {
+        Optional<ReleveNote> optionalReleveNote = releveNoteRepository.findById(id);
+        if (ReleveNote.isPresent()) {
+            ReleveNote existingReleveNote = optionalReleveNote.get();
 
-            return ResponseEntity.ok().body(etudientRepository.save(existingEtudiant));
+
+            return ResponseEntity.ok().body(releveNoteRepository.save(existingReleveNote));
         }
         return ResponseEntity.notFound().build();
     }
@@ -48,22 +40,17 @@ public class ReleveNoteService {
     }
 
    
-    public ResponseEntity<Object> createEtudient(Etudient etudient) {
-
-        if(etudient.equals(null))
-             throw new UnsupportedOperationException("Unimplemented method 'createEtudient'");
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(etudientRepository.save(etudient));
+   
+    public ResponseEntity<ReleveNote> updateReleveNote(ReleveNote releveNote) {
+       if (releveNote.equals(null))
+        throw new UnsupportedOperationException("Unimplemented method 'updateReleveNote'");
+             
+            return null;
     }
 
-    public ResponseEntity<Etudient> updateEtudient(Etudient etudient) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'updateEtudient'");
-    }
-
-    public ResponseEntity<Object> deleteEtudient(Long id) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'deleteEtudient'");
-    }
+        public ResponseEntity<Object> deleteEtudient(Long id) {
+            
+            throw new UnsupportedOperationException("Unimplemented method 'deleteEtudient'");
+        }
 
 }

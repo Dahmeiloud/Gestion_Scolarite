@@ -9,3 +9,4 @@ import com.smart.projetsmart.entity.Etudient;
 public interface EtudientRepository extends JpaRepository<Etudient , Long> {
     public     Etudient findByNom(String nom);
 }
+ 

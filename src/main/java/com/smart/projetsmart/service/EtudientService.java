@@ -57,11 +57,12 @@ public class EtudientService {
     }
 
     public ResponseEntity<Etudient> updateEtudient(Etudient etudient) {
+        if (etudient.equals(null)) 
 
-        // if(etudient.equals(null))
              throw new UnsupportedOperationException("Unimplemented method 'updateEtudient'");
+        return null;
 
-        // return ResponseEntity.status(HttpStatus.UPDATED).body(etudientRepository.save(etudient)) ;
+        // return ResponseEntity.status(HttpStatus.updateEtudient).body(etudientRepository.save(etudient)) ;
     }
 
     public ResponseEntity<Object> deleteEtudient(Long id) {

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController 
-@RequestMapping("/proffesseurs")
+@RequestMapping("/professeurs")
 
 public class ProffesseurController {
     
